@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 itertools = "0.13.0"
+regex = "1.11.1"
 
 [[bin]]
 name = "01-1"
@@ -21,3 +22,7 @@ path = "src/02-1.rs"
 [[bin]]
 name = "02-2"
 path = "src/02-2.rs"
+
+[[bin]]
+name = "03"
+path = "src/03.rs"
