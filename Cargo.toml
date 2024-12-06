@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 itertools = "0.13.0"
+ndarray = "0.16.1"
 regex = "1.11.1"
 
 [[bin]]
@@ -34,3 +35,7 @@ path = "src/04.rs"
 [[bin]]
 name = "05"
 path = "src/05.rs"
+
+[[bin]]
+name = "06"
+path = "src/06.rs"
