@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+gcd = "2.3.0"
+glam = "0.29.2"
 itertools = "0.13.0"
 ndarray = "0.16.1"
 regex = "1.11.1"
@@ -43,3 +45,7 @@ path = "src/06.rs"
 [[bin]]
 name = "07"
 path = "src/07.rs"
+
+[[bin]]
+name = "08"
+path = "src/08.rs"
