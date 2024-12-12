@@ -61,3 +61,7 @@ path = "src/10.rs"
 [[bin]]
 name = "11"
 path = "src/11.rs"
+
+[[bin]]
+name = "12"
+path = "src/12.rs"
