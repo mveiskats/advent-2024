@@ -8,7 +8,9 @@ gcd = "2.3.0"
 glam = "0.29.2"
 itertools = "0.13.0"
 ndarray = "0.16.1"
+num-rational = "0.4.2"
 regex = "1.11.1"
+winnow = "0.6.20"
 
 [[bin]]
 name = "01-1"
@@ -65,3 +67,7 @@ path = "src/11.rs"
 [[bin]]
 name = "12"
 path = "src/12.rs"
+
+[[bin]]
+name = "13"
+path = "src/13.rs"
