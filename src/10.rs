@@ -8,7 +8,7 @@ struct TrailSearch {
 impl TrailSearch {
     pub fn scores(map: &Array2<usize>, start: (usize, usize)) -> (usize, usize) {
         let mut search = Self { visited: Array2::from_elem(map.dim(), false) };
-        search.visit(&map, start, 0)
+        search.visit(map, start, 0)
     }
 
     fn neighbours(map: &Array2<usize>, (x, y): (usize, usize)) -> Vec<(usize, usize)> {
@@ -34,8 +34,8 @@ impl TrailSearch {
             return (!visited as usize, 1)
         }
 
-        Self::neighbours(&map, pos).into_iter()
-            .map(|pos| self.visit(&map, pos, height + 1))
+        Self::neighbours(map, pos).into_iter()
+            .map(|pos| self.visit(map, pos, height + 1))
             .fold((0,0), |acc, score| (acc.0 + score.0, acc.1 + score.1))
     }
 }

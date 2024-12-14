@@ -39,7 +39,7 @@ fn main() {
         regions[(rows + 1, col)] = Some(0);
     }
 
-    while let Some((start, None)) = regions.indexed_iter().find(|(_, val)| **val == None) {
+    while let Some((start, None)) = regions.indexed_iter().find(|(_, val)| val.is_none()) {
         let ch = map[start];
         let idx = region_sizes.len();
         let mut search: Vec<(usize, usize)> = vec![start];
@@ -48,7 +48,7 @@ fn main() {
         let mut perimeter = 0;
 
         while let Some(pos) = search.pop() {
-            if regions[pos] != None { continue }
+            if regions[pos].is_some() { continue }
 
             regions[pos] = Some(idx);
             size += 1;

@@ -21,13 +21,12 @@ fn main() {
 
     let mut antennae: HashMap<char, Vec<IVec2>> = HashMap::new();
 
-    for row in 0..rows {
-        for col in 0..cols {
-            let ch = input[row][col];
-            if ch == '.' { continue }
+    for (y, row) in input.iter().enumerate() {
+        for (x, ch) in row.iter().enumerate() {
+            if *ch == '.' { continue }
 
-            let p = IVec2 { x: col as i32, y: row as i32 };
-            antennae.entry(ch).or_default().push(p);
+            let p = IVec2 { x: x as i32, y: y as i32 };
+            antennae.entry(*ch).or_default().push(p);
         }
     }
 
@@ -37,7 +36,7 @@ fn main() {
     for positions in antennae.values() {
         for (p1, p2) in positions.iter().tuple_combinations() {
             let slope = p2 - p1;
-            let gcd = (slope.x.abs() as u32).gcd(slope.y.abs() as u32);
+            let gcd = slope.x.unsigned_abs().gcd(slope.y.unsigned_abs());
 
             // Generally there could be antinodes between pair of anteannae,
             // but input doesn't have any cases like this

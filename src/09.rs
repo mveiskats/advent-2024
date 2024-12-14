@@ -16,19 +16,18 @@ fn main() {
 
     let mut disk: Vec<Option<usize>> = input.iter()
         .enumerate()
-        .map(|(i, len)| {
+        .flat_map(|(i, len)| {
             let elem = if i % 2 == 1 { None } else { Some(i / 2) };
             vec![elem; *len].into_iter()
         })
-        .flatten()
         .collect();
 
     let mut start = 0;
     let mut end = disk.len() - 1;
 
     while start < end {
-        if disk[end] == None { end -= 1; continue }
-        if disk[start] != None { start += 1; continue }
+        if disk[end].is_none() { end -= 1; continue }
+        if disk[start].is_some() { start += 1; continue }
         disk[start] = disk[end];
         disk[end] = None;
     }
@@ -52,11 +51,11 @@ fn main() {
     let mut current = disk.len() - 1;
 
     while current > 0 {
-        if disk[current].id == None { current -= 1; continue }
+        if disk[current].id.is_none() { current -= 1; continue }
 
         let current_len = disk[current].len;
         let free = disk[0..current].iter()
-            .position(|block| block.id == None && block.len >= current_len);
+            .position(|block| block.id.is_none() && block.len >= current_len);
 
         if let Some(free) = free {
             let free_len = disk[free].len;

@@ -5,8 +5,8 @@ fn is_possible1(value: usize, operands: &[usize], acc: usize) -> bool {
     match operands {
         [] => { acc == value }
         [op, tail @ ..] => {
-            is_possible1(value, &tail, acc + op) ||
-                is_possible1(value, &tail, acc * op)
+            is_possible1(value, tail, acc + op) ||
+                is_possible1(value, tail, acc * op)
         }
     }
 }
@@ -20,9 +20,9 @@ fn is_possible2(value: usize, operands: &[usize], acc: usize) -> bool {
     match operands {
         [] => { acc == value }
         [op, tail @ ..] => {
-            is_possible2(value, &tail, acc + op) ||
-                is_possible2(value, &tail, acc * op) ||
-                is_possible2(value, &tail, combine(acc, *op))
+            is_possible2(value, tail, acc + op) ||
+                is_possible2(value, tail, acc * op) ||
+                is_possible2(value, tail, combine(acc, *op))
         }
     }
 }

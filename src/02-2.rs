@@ -1,7 +1,7 @@
 use std::io;
 use itertools::Itertools;
 
-fn is_safe(levels: &Vec<usize>) -> bool {
+fn is_safe(levels: &[usize]) -> bool {
     levels.iter().tuple_windows().all(|(&l1, &l2)| l1.abs_diff(l2) <= 3) &&
         (levels.iter().tuple_windows().all(|(l1, l2)| l1 < l2) ||
          levels.iter().tuple_windows().all(|(l1, l2)| l1 > l2))

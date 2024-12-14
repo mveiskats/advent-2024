@@ -50,7 +50,7 @@ impl Transformer {
             return vec![left, right];
         }
 
-        return vec![a * 2024];
+        vec![a * 2024]
     }
 }
 
